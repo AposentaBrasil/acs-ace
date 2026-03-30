@@ -388,7 +388,7 @@ function validarERevelar(event) {
 
 function compartilharWhatsApp() {
     const urlPagina = window.location.href;
-    const mensagem = encodeURIComponent("*Simulador Gratuito PEC 14/2021 - ACS/ACE*\n\nVeja quando você pode se aposentar também:\n\n✅ Considera seu tempo na função\n\✅ Mostra possível redução de idade\n\✅ Leva 60 segundos\n\✅ 100% Grátis\n\ Acesse o Simulador pelo Link: \n\n" + urlPagina);
+    const mensagem = encodeURIComponent("*Simulador Gratuito PEC 14/2021 - ACS/ACE*\n\nVeja quando você pode se aposentar também:\n\n✅ Considera seu tempo na função\n\✅ Mostra possível redução de idade\n\✅ Leva 60 segundos\n\✅ 100% Grátis\n\n\ *Acesse o Simulador pelo Link:* \n\n" + urlPagina);
     window.open(`https://api.whatsapp.com/send?text=${mensagem}`, '_blank');
 }
 

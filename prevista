@@ -13,8 +13,6 @@
         --accent-orange: #f97316;
         --whatsapp-green: #25d366;
         --insta-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        --insta-light-bg: #fdf2f8; 
-        --insta-light-border: #fbcfe8;
         --white: #ffffff;
     }
 
@@ -22,29 +20,18 @@
     body{margin:0;font-family:'Inter', sans-serif;background:var(--original-bg);color:#0f172a;}
     .app{max-width:420px;margin:auto;padding:14px;display:flex;flex-direction:column;gap:12px;padding-bottom: 50px;}
 
-    .progress-container { display: none; }
-    
     .card{background:var(--white); border:1px solid var(--original-border); border-radius:12px; padding:18px;}
     h1{font-size:16px; margin:0; font-weight:600; color: var(--original-blue);}
     .sub{font-size:12px; color:#475569;}
     .label{font-size:12px; font-weight:600; margin-bottom:8px; display:block;}
 
-    /*.social-proof { font-size: 11px; color: #1e293b; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; justify-content: center; background: #dcfce7; padding: 8px; border-radius: 20px; font-weight: 500; }*/
+    .social-proof { font-size: 11px; color: #1e293b; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; justify-content: center; background: #dcfce7; padding: 8px; border-radius: 20px; font-weight: 500; }
 
     #loading-container { display: none; margin-top: 20px; text-align: center; background: #f1f5f9; padding: 15px; border-radius: 10px; border: 1px solid var(--original-border); }
-    
-    /* Correção: Removido o uppercase para aceitar letras minúsculas */
-    .loading-text { font-size: 11px; font-weight: 800; color: var(--original-blue); margin-bottom: 10px; min-height: 14px; }
+    .loading-text { font-size: 11px; font-weight: 800; color: var(--original-blue); margin-bottom: 10px; min-height: 14px; text-transform: uppercase; }
     
     .progress-bar-bg { width: 100%; height: 12px; background: #e2e8f0; border-radius: 10px; overflow: hidden; border: 1px solid var(--original-border); }
-    /* Localize esta classe no seu <style> e substitua o background */
-.progress-bar-fill { 
-    width: 0%; 
-    height: 100%; 
-    /* Degradê do azul original para o verde do WhatsApp */
-    background: linear-gradient(90deg, var(--original-blue), var(--whatsapp-green)); 
-    transition: width 0.3s ease; 
-}
+    .progress-bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--original-blue), var(--accent-orange)); transition: width 0.3s ease; }
 
     .sex{display:flex; gap:6px; margin-bottom: 10px;}
     .sex button{flex:1; padding:10px; border-radius:6px; border:1px solid #cbd5e1; background:#f8fafc; font-size:13px; cursor:pointer;}
@@ -57,9 +44,10 @@
     input[type=range]{flex:1; height:4px; appearance:none; background:#cbd5e1; border-radius:4px;}
     input[type=range]::-webkit-slider-thumb{appearance:none; width:18px; height:18px; background:var(--original-blue); border-radius:50%; border:2px solid #fff;}
 
-    .months{display:flex; flex-wrap:nowrap; gap:2px; margin: 10px 0; justify-content: space-between;}
-    .months button{ flex: 1; min-width: 0; padding: 8px 0; font-size: 10px; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; cursor: pointer; }
-    .months button.active{background:var(--original-blue); color:var(--white);}
+    /* GRID DOS MESES - RESTAURADO */
+    .months{display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin: 10px 0;}
+    .months button{ padding: 8px 0; font-size: 10px; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; cursor: pointer; }
+    .months button.active{background:var(--original-blue); color:var(--white); border-color: var(--original-blue);}
 
     .calc{width:100%; padding:16px; border-radius:8px; background:var(--original-blue); color:var(--white); font-size:15px; font-weight:700; border:none; cursor:pointer; margin-top:5px;}
 
@@ -69,40 +57,10 @@
     .res-card-main { text-align:center; border-top: 6px solid var(--original-blue); border-radius: 16px; background: var(--white); padding: 20px; border: 1px solid var(--original-border); margin-bottom: 12px;}
     .data-destaque { font-size: 32px; font-weight: 900; color: var(--original-blue); display: block; margin: 8px 0; }
 
- /* Altere estas regras no seu CSS */
-
-.unlock-overlay { 
-    background: var(--white); 
-    border: 2px dashed var(--whatsapp-green); /* Alterado de laranja para verde */
-    border-radius: 16px; 
-    padding: 24px; 
-    text-align: center; 
-    margin-top: 15px; 
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); 
-}
-
-input[type=email] { 
-    width: 100%; 
-    padding: 16px; 
-    border-radius: 12px; 
-    border: 2px dashed var(--whatsapp-green); /* Alterado de laranja para verde */
-    font-size: 16px; 
-    margin-bottom: 12px; 
-    outline: none; 
-    background: #f0fdf4; /* Um tom de verde bem claro (Honeydew) para combinar */
-}
-
-.btn-enviar { 
-    width: 100%; 
-    padding: 18px; 
-    background: var(--whatsapp-green); /* Alterado de laranja para verde */
-    color: var(--white); 
-    border: none; 
-    border-radius: 12px; 
-    font-weight: 800; 
-    font-size: 16px; 
-    cursor: pointer; 
-}
+    /* Box de E-mail Verde */
+    .unlock-overlay { background: var(--white); border: 2px dashed var(--whatsapp-green); border-radius: 16px; padding: 24px; text-align: center; margin-top: 15px; }
+    input[type=email] { width: 100%; padding: 16px; border-radius: 12px; border: 2px dashed var(--whatsapp-green); font-size: 16px; margin-bottom: 12px; outline: none; background: #f0fdf4; }
+    .btn-enviar { width: 100%; padding: 18px; background: var(--whatsapp-green); color: var(--white); border: none; border-radius: 12px; font-weight: 800; font-size: 16px; cursor: pointer; }
 
     .blur-wrapper { position: relative; border-radius: 12px; overflow: hidden; }
     .blur-box { filter: blur(6px); opacity: 0.5; pointer-events: none; transition: 0.5s; }
@@ -111,25 +69,13 @@ input[type=email] {
     .lock-tag { background: var(--original-blue); color: white; padding: 6px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; }
     .unlocked .lock-shield { display: none; }
 
-    .insta-premium-box { 
-        display: none; 
-        margin-top: 20px; 
-        padding: 1px;
-        background: var(--insta-gradient);
-        border-radius: 12px; 
-        overflow: hidden;
-    }
-    .insta-premium-content { background: var(--white); padding: 20px; border-radius: 11px; text-align: center; }
-    .insta-premium-title { font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 8px; }
-    .insta-premium-text { font-size: 12px; color: #475569; margin: 0 0 18px 0; line-height: 1.5; }
-    .btn-insta-final { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; background: var(--insta-gradient); color: white; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: 14px; }
-    .insta-icon { width: 20px; height: 20px; fill: white; }
-
-    .btn-share { 
-        display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; 
-        background: var(--whatsapp-green); color: white; border-radius: 8px; font-weight: 700; font-size: 13px; 
-        margin-top: 15px; border: none; cursor: pointer;
-    }
+    /* Instagram Box */
+    .insta-premium-box { display: none; margin-top: 20px; padding: 2px; background: var(--insta-gradient); border-radius: 16px; }
+    .insta-premium-content { background: var(--white); padding: 20px; border-radius: 14px; text-align: center; }
+    .insta-avatar { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #e6683c; padding: 2px; margin-bottom: 10px; }
+    .btn-insta-final { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: var(--insta-gradient); color: white; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: 14px; margin-top: 10px; }
+    
+    .btn-share { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 16px; background: var(--whatsapp-green); color: white; border-radius: 10px; font-weight: 800; font-size: 14px; margin-top: 15px; border: none; cursor: pointer; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -138,13 +84,13 @@ input[type=email] {
 
 <div class="app">
     <div class="card">
-        <h1>Simulador de Aposentadoria PEC 14</h1>
-        <!--<div class="sub">Aposentadoria pela regra de transição para ACS e ACE - Informações devem ser confirmadas pelos órgãos oficiais</div>-->
+        <h1>Simulador de Aposentadoria PEC 14/2021</h1>
+        <div class="sub">Simulador de Aposentadoria para ACS e ACE</div>
     </div>
 
     <div class="social-proof">
-        <!--<span>⚡</span> 1.248 ACS/ACE consultaram suas aposentadorias hoje.
-    </div>-->
+        <span>⚡</span> 1.248 servidores auditaram seus dados hoje.
+    </div>
 
     <div id="card-dados" class="card">
         <span class="label">Gênero</span>
@@ -168,7 +114,7 @@ input[type=email] {
             <div class="btn-step" onclick="step('rangeAnoN', 1)">+</div>
         </div>
 
-        <span class="label" style="margin-top:15px">Início como ACS/ACE</span>
+        <span class="label" style="margin-top:15px">Início no Serviço Público (ACS/ACE)</span>
         <div class="row">
             <div class="day" id="valDiaE">23</div>
             <div class="btn-step" onclick="step('rangeDiaE', -1)">−</div>
@@ -189,8 +135,6 @@ input[type=email] {
             <div id="loading-msg" class="loading-text">Iniciando...</div>
             <div class="progress-bar-bg"><div id="loading-bar" class="progress-bar-fill"></div></div>
         </div>
-
-        <button class="btn-share" onclick="compartilharWhatsApp()">COMPARTILHAR SIMULADOR</button>
     </div>
 
     <div id="secao-resultado" class="result-section">
@@ -211,72 +155,67 @@ input[type=email] {
                         <span id="res-falta-detalhado" style="color:var(--accent-orange); font-size:14px;">--</span>
                     </div>
                 </div>
-
-                <div id="insta-premium" class="insta-premium-box">
-                    <div class="insta-premium-content">
-                        <div class="insta-premium-title">Gostou da simulação? Siga-nos!</div>
-                        <p class="insta-premium-text">Receba atualizações e dicas diárias sobre a PEC 14 no seu Instagram.</p>
-                        <a href="https://www.instagram.com/aposenta_brasil_acs_ace/" target="_blank" class="btn-insta-final">
-                            <svg class="insta-icon" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                            SEGUIR AGORA
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
 
         <div id="overlay-email" class="unlock-overlay">
             <h3 style="font-size: 16px; margin: 0 0 8px 0; color: var(--original-blue);">Relatório Pronto!</h3>
-            <p style="font-size:13px; color:#64748b; margin-bottom:18px;">Informe seu e-mail para desbloquear seu relatório completo:</p>
+            <p style="font-size:13px; color:#64748b; margin-bottom:18px;">Informe seu e-mail para liberar o relatório completo:</p>
             
-            <form id="mc-form" action="https://gmail.us7.list-manage.com/subscribe/post?u=c2c13618c5db81be7d976b951&amp;id=5a07598f03&amp;f_id=003b5fe0f0" method="POST" target="hidden_iframe">
+            <form id="mc-form" action="COLE_URL_AQUI" method="POST" target="hidden_iframe">
                 <input type="email" name="EMAIL" id="inputEmail" placeholder="seu@email.com" required>
                 <button type="submit" class="btn-enviar" onclick="validarERevelar(event)">DESBLOQUEAR AGORA</button>
             </form>
         </div>
+
+        <div id="insta-premium" class="insta-premium-box">
+            <div class="insta-premium-content">
+                <img src="https://github.com/aciolete.png" class="insta-avatar" alt="Avatar">
+                <div style="font-size:15px; font-weight:800; color:#1e293b;">Siga para mais atualizações!</div>
+                <a href="https://www.instagram.com/aciolete/" target="_blank" class="btn-insta-final">SEGUIR NO INSTAGRAM</a>
+            </div>
+        </div>
+
+        <button onclick="compartilharWhatsApp()" class="btn-share">COMPARTILHAR NO WHATSAPP</button>
     </div>
 </div>
+
 <script>
-const mesesN = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const mesesNomes = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
 let config = { s: 'm', mN: 0, mE: 11 };
 
-function setS(val) { config.s = val; document.getElementById('btnM').className = val === 'm' ? 'active' : ''; document.getElementById('btnF').className = val === 'f' ? 'active' : ''; }
-
-function getMaxDias(mes, ano) { return new Date(ano, mes + 1, 0).getDate(); }
+function setS(val) { 
+    config.s = val; 
+    document.getElementById('btnM').className = val === 'm' ? 'active' : ''; 
+    document.getElementById('btnF').className = val === 'f' ? 'active' : ''; 
+}
 
 function upd() {
-    const anoN = document.getElementById('rangeAnoN').value;
-    const anoE = document.getElementById('rangeAnoE').value;
-    const diaNEl = document.getElementById('rangeDiaN');
-    const diaEEl = document.getElementById('rangeDiaE');
-
-    const maxN = getMaxDias(config.mN, parseInt(anoN));
-    diaNEl.max = maxN; if (parseInt(diaNEl.value) > maxN) diaNEl.value = maxN;
-
-    const maxE = getMaxDias(config.mE, parseInt(anoE));
-    diaEEl.max = maxE; if (parseInt(diaEEl.value) > maxE) diaEEl.value = maxE;
-
-    document.getElementById('valAnoN').innerText = anoN;
-    document.getElementById('valAnoE').innerText = anoE;
-    document.getElementById('valDiaN').innerText = diaNEl.value.padStart(2, '0');
-    document.getElementById('valDiaE').innerText = diaEEl.value.padStart(2, '0');
+    document.getElementById('valAnoN').innerText = document.getElementById('rangeAnoN').value;
+    document.getElementById('valAnoE').innerText = document.getElementById('rangeAnoE').value;
+    document.getElementById('valDiaN').innerText = document.getElementById('rangeDiaN').value.padStart(2, '0');
+    document.getElementById('valDiaE').innerText = document.getElementById('rangeDiaE').value.padStart(2, '0');
 }
 
 function step(id, val) {
     const el = document.getElementById(id);
-    let novoValor = parseInt(el.value) + val;
-    if (novoValor < parseInt(el.min)) novoValor = parseInt(el.min);
-    if (novoValor > parseInt(el.max)) novoValor = parseInt(el.max);
-    el.value = novoValor;
+    let nv = parseInt(el.value) + val;
+    if (nv >= el.min && nv <= el.max) el.value = nv;
     upd();
 }
 
 function renderMeses(id, key) {
-    const box = document.getElementById(id); box.innerHTML = '';
-    mesesN.forEach((m, i) => {
-        const btn = document.createElement('button'); btn.innerText = m;
+    const box = document.getElementById(id); 
+    box.innerHTML = '';
+    mesesNomes.forEach((m, i) => {
+        const btn = document.createElement('button');
+        btn.innerText = m;
         if (i === config[key]) btn.className = 'active';
-        btn.onclick = () => { config[key] = i; renderMeses(id, key); upd(); };
+        btn.onclick = () => { 
+            config[key] = i; 
+            renderMeses(id, key); 
+            upd(); 
+        };
         box.appendChild(btn);
     });
 }
@@ -286,28 +225,34 @@ function iniciarFluxo() {
     const loader = document.getElementById('loading-container');
     const bar = document.getElementById('loading-bar');
     const msg = document.getElementById('loading-msg');
-    btn.disabled = true; loader.style.display = 'block';
+    btn.disabled = true; 
+    loader.style.display = 'block';
 
     let prog = 0;
     const etapas = [
         {p: 10, m: "Cruzando Dados com a PEC 14..."}, 
-        {p: 40, m: "Consultando Base de Dados PEC 14..."}, 
-        {p: 70, m: "Validando Requisitos do Artigo 3º..."}, 
+        {p: 40, m: "Consultando Base de Dados..."}, 
+        {p: 70, m: "Validando Requisitos..."}, 
         {p: 90, m: "Cálculo Finalizado"}
     ];
 
     const interval = setInterval(() => {
-        prog++; bar.style.width = prog + "%";
+        prog++; 
+        bar.style.width = prog + "%";
         const etapa = etapas.find(e => prog === e.p);
         if (etapa) msg.innerText = etapa.m;
-        if(prog >= 100) { clearInterval(interval); exibirResultado(); }
+        if(prog >= 100) { 
+            clearInterval(interval); 
+            exibirResultado(); 
+        }
     }, 30);
 }
 
 function exibirResultado() {
     const dN = new Date(document.getElementById('rangeAnoN').value, config.mN, document.getElementById('rangeDiaN').value, 12);
     const dE = new Date(document.getElementById('rangeAnoE').value, config.mE, document.getElementById('rangeDiaE').value, 12);
-    let dSim = new Date(); dSim.setHours(12, 0, 0, 0);
+    let dSim = new Date(); 
+    dSim.setHours(12, 0, 0, 0);
     let dataFinal = null;
 
     while (!dataFinal) {
@@ -316,13 +261,16 @@ function exibirResultado() {
         let tempo = getAnosCompletos(dE, dSim);
         let red = Math.min(Math.max(tempo - 25, 0), 5);
         let base = (config.s === 'm') ? (ano <= 2030 ? 52 : 54) : (ano <= 2030 ? 50 : 52);
-        if (idade >= (base - red) && tempo >= 25) dataFinal = new Date(dSim);
-        else dSim.setDate(dSim.getDate() + 1);
+        
+        if (idade >= (base - red) && tempo >= 25) {
+            dataFinal = new Date(dSim);
+        } else {
+            dSim.setDate(dSim.getDate() + 1);
+        }
     }
 
     document.getElementById('data-final-txt').innerText = dataFinal.toLocaleDateString('pt-BR');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
+    
     window.dadosCalculados = {
         idade: getAnosCompletos(dN, dataFinal),
         tempo: getAnosCompletos(dE, dataFinal),
@@ -335,25 +283,33 @@ function exibirResultado() {
 }
 
 function getContagemRegressiva(df) {
-    const hoje = new Date(); hoje.setHours(12, 0, 0, 0);
-    const dataF = new Date(df); dataF.setHours(12, 0, 0, 0);
-    if (dataF <= hoje) return "Requisito já cumprido!";
-    let anos = dataF.getFullYear() - hoje.getFullYear();
-    let meses = dataF.getMonth() - hoje.getMonth();
-    let dias = dataF.getDate() - hoje.getDate();
-    if (dias < 0) { meses--; const ultimoDiaMesAnterior = new Date(dataF.getFullYear(), dataF.getMonth(), 0).getDate(); dias += ultimoDiaMesAnterior; }
-    if (meses < 0) { anos--; meses += 12; }
-    const semanas = Math.floor(dias / 7);
-    const diasFinais = dias % 7;
-    const plural = (qtd, sing, plur) => `${qtd} ${qtd === 1 ? sing : plur}`;
-    let partes = [];
-    if (anos > 0) partes.push(plural(anos, "ano", "anos"));
-    if (meses > 0) partes.push(plural(meses, "mês", "meses"));
-    if (semanas > 0) partes.push(plural(semanas, "semana", "semanas"));
-    if (diasFinais > 0 || partes.length === 0) partes.push(plural(diasFinais, "dia", "dias"));
-    if (partes.length === 1) return partes[0];
-    const ultima = partes.pop();
-    return partes.join(", ") + " e " + ultima;
+    const hoje = new Date(); 
+    hoje.setHours(12, 0, 0, 0);
+    const alvo = new Date(df); 
+    alvo.setHours(12, 0, 0, 0);
+    if (alvo <= hoje) return "Requisito já cumprido!";
+
+    let anos = alvo.getFullYear() - hoje.getFullYear();
+    let meses = alvo.getMonth() - hoje.getMonth();
+    let dias = alvo.getDate() - hoje.getDate();
+
+    if (dias < 0) {
+        meses--;
+        dias += new Date(alvo.getFullYear(), alvo.getMonth(), 0).getDate();
+    }
+    if (meses < 0) {
+        anos--;
+        meses += 12;
+    }
+
+    let p = [];
+    if (anos > 0) p.push(anos + (anos === 1 ? " ano" : " anos"));
+    if (meses > 0) p.push(meses + (meses === 1 ? " mês" : " meses"));
+    if (dias > 0) p.push(dias + (dias === 1 ? " dia" : " dias"));
+    
+    if (p.length === 0) return "Menos de 1 dia";
+    const last = p.pop();
+    return p.length ? p.join(", ") + " e " + last : last;
 }
 
 function getAnosCompletos(i, f) {
@@ -363,35 +319,32 @@ function getAnosCompletos(i, f) {
 }
 
 function validarERevelar(event) {
-    const emailInput = document.getElementById('inputEmail');
-    const email = emailInput.value;
-    
+    const email = document.getElementById('inputEmail').value;
     if (email.includes('@') && email.includes('.')) {
-        const id = window.dadosCalculados.idade;
-        const tp = window.dadosCalculados.tempo;
-        const rd = window.dadosCalculados.red;
-
-        document.getElementById('res-idade').innerText = `${id} ${id === 1 ? 'ano' : 'anos'}`;
-        document.getElementById('res-tempo').innerText = `${tp} ${tp === 1 ? 'ano' : 'anos'}`;
-        document.getElementById('res-red').innerText = `${rd} ${rd === 1 ? 'ano' : 'anos'}`;
-        document.getElementById('res-falta-detalhado').innerText = window.dadosCalculados.contagem;
+        const d = window.dadosCalculados;
+        document.getElementById('res-idade').innerText = `${d.idade} anos`;
+        document.getElementById('res-tempo').innerText = `${d.tempo} anos`;
+        document.getElementById('res-red').innerText = `${d.red} anos`;
+        document.getElementById('res-falta-detalhado').innerText = d.contagem;
 
         document.getElementById('overlay-email').style.display = 'none';
         document.getElementById('blur-wrapper').classList.add('unlocked');
         document.getElementById('insta-premium').style.display = 'block';
     } else { 
         alert("Informe um e-mail válido."); 
-        event.preventDefault(); // Impede o envio para o Mailchimp se o email estiver errado
+        event.preventDefault();
     }
 }
 
 function compartilharWhatsApp() {
-    const urlPagina = window.location.href;
-    const mensagem = encodeURIComponent("*Simulador Gratuito PEC 14/2021 - ACS/ACE*\n\nVeja quando você pode se aposentar também:\n\n✅ Considera seu tempo na função\n\✅ Mostra possível redução de idade\n\✅ Leva 60 segundos\n\✅ 100% Grátis\n\n\ *Acesse o Simulador Grátis:* \n\n" + urlPagina);
-    window.open(`https://api.whatsapp.com/send?text=${mensagem}`, '_blank');
+    const url = window.location.href;
+    const msg = encodeURIComponent("*Simulador Oficial PEC 14/2021*\nAcabei de ver minha data de aposentadoria diferenciada. Veja a sua também:\n\n" + url);
+    window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
 }
 
-renderMeses('mesNBox', 'mN'); renderMeses('mesEBox', 'mE'); upd();
+renderMeses('mesNBox', 'mN'); 
+renderMeses('mesEBox', 'mE'); 
+upd();
 </script>
 </body>
 </html>

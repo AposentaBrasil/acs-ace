@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -131,6 +132,23 @@ input[type=email] {
         background: var(--whatsapp-green); color: white; border-radius: 8px; font-weight: 700; font-size: 13px; 
         margin-top: 15px; border: none; cursor: pointer;
     }
+.btn-atualizar {
+    width: 100%;
+    padding: 14px;
+    background: #64748b; /* Um cinza azulado para diferenciar do verde/azul */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-atualizar:hover {
+    background: #475569;
+}
 </style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SK5PE0ZFJ"></script>
@@ -210,6 +228,7 @@ input[type=email] {
         <div class="res-card-main">
             <span class="label">Sua Aposentadoria prevista:</span>
             <span class="data-destaque" id="data-final-txt">--/--/----</span>
+<button class="btn-atualizar" onclick="recomecar()">FAZER NOVA SIMULAÇÃO</button>
         </div>
         <div class="blur-wrapper" id="blur-wrapper">
             <div class="lock-shield"><div class="lock-tag">🔒 RELATÓRIO COMPLETO BLOQUEADO</div></div>
@@ -227,6 +246,7 @@ input[type=email] {
                 <div id="insta-premium" class="insta-premium-box">
                     <div class="insta-premium-content">
                         <div class="insta-premium-title">Gostou da simulação? Siga-nos!</div>
+}
                         <p class="insta-premium-text">Receba atualizações e dicas no seu Instagram.</p>
                         <a href="https://www.instagram.com/aposenta_brasil_acs_ace/" target="_blank" class="btn-insta-final">
                             <svg class="insta-icon" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
@@ -239,7 +259,7 @@ input[type=email] {
 
         <div id="overlay-email" class="unlock-overlay">
             <h3 style="font-size: 16px; margin: 0 0 8px 0; color: var(--original-blue);">Relatório Pronto!</h3>
-            <p style="font-size:13px; color:#64748b; margin-bottom:18px;">Informe seu e-mail para desbloquear seu relatório completo:</p>
+            <p style="font-size:13px; color:#64748b; margin-bottom:18px;">Informe seu e-mail para desbloquear seu relatório completo gratuito:</p>
             
             <form id="mc-form" action="https://gmail.us7.list-manage.com/subscribe/post?u=c2c13618c5db81be7d976b951&amp;id=5a07598f03&amp;f_id=003b5fe0f0" method="POST" target="hidden_iframe">
                 <input type="email" name="EMAIL" id="inputEmail" placeholder="seu@email.com" required>
@@ -404,6 +424,10 @@ function compartilharWhatsApp() {
 }
 
 renderMeses('mesNBox', 'mN'); renderMeses('mesEBox', 'mE'); upd();
+
+function recomecar() {
+    window.location.reload();
+}
 </script>
 </body>
 </html>
